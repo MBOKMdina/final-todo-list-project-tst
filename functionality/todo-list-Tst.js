@@ -39,50 +39,53 @@ document.querySelector('.js-greeting').innerHTML =
 `;
 
 
-document.querySelector('.js-addToDoList').addEventListener('click', ()=>
+document.querySelectorAll('.js-addToDoList').forEach((addToDoDiv)=>
 {
-    document.querySelector('.js-add-procedure').innerHTML = `
-        <div class="background2"></div>
-        <div class="ui-new-todo">
-        <div class="close-contain">
-            <div class="close js-close">
-                <img class="x" src="images/x.svg">
+    addToDoDiv.addEventListener('click', ()=>
+    {
+        document.querySelector('.js-add-procedure').innerHTML = `
+            <div class="background2"></div>
+            <div class="ui-new-todo">
+            <div class="close-contain">
+                <div class="close js-close">
+                    <img class="x" src="images/x.svg">
+                </div>
             </div>
-        </div>
-        <div class="contents">
-            <input type="date" class="js-input" placeholder="new todo list date">
-            <button class="js-enter">Enter</button>
-        </div>
-        </div>
-    `;
-    document.querySelector('.js-close').addEventListener('click', ()=>
-    {
-        document.querySelector('.js-add-procedure').innerHTML = ``
-    });
+            <div class="contents">
+                <input type="date" class="todo-date js-input" placeholder="new todo list date">
+                <button class="enter-button js-enter">Enter</button>
+            </div>
+            </div>
+        `;
+        document.querySelector('.js-close').addEventListener('click', ()=>
+        {
+            document.querySelector('.js-add-procedure').innerHTML = ``
+        });
 
-    document.querySelector('.js-enter').addEventListener('click', ()=>
-    {
-        let dateTodo = document.querySelector('.js-input');
-        document.querySelector('.js-add-procedure').innerHTML = ``;
-        addList(dateTodo.value);
-        saveToStorage();
-        saveToStorageAuto();
-    });
-
-    document.addEventListener('keydown', (event)=>
-    {
-        if(event.key === 'Enter')
+        document.querySelector('.js-enter').addEventListener('click', ()=>
         {
             let dateTodo = document.querySelector('.js-input');
             document.querySelector('.js-add-procedure').innerHTML = ``;
             addList(dateTodo.value);
             saveToStorage();
             saveToStorageAuto();
-        }
-    });
-    checkBox();
-    description();
-    time();
+        });
+
+        document.addEventListener('keydown', (event)=>
+        {
+            if(event.key === 'Enter')
+            {
+                let dateTodo = document.querySelector('.js-input');
+                document.querySelector('.js-add-procedure').innerHTML = ``;
+                addList(dateTodo.value);
+                saveToStorage();
+                saveToStorageAuto();
+            }
+        });
+        checkBox();
+        description();
+        time();
+    }); 
 });
     
 renderList();
@@ -307,7 +310,6 @@ function checkBox()
             if(checkBox.innerHTML === '')
             {
                 listTst[listIndex].todoList[checkBoxIndex].complete = true;
-                automateListsTst[listIndex].todoList[checkBoxIndex].complete = true
                 checkBox.innerHTML =`
                 <img class="check" src="images/check-mark.png">
                 `;
@@ -315,7 +317,6 @@ function checkBox()
             else
             {
                 listTst[listIndex].todoList[checkBoxIndex].complete = false;
-                automateListsTst[listIndex].todoList[checkBoxIndex].complete = false;
                 checkBox.innerHTML = '';
             }
             saveToStorage();
@@ -370,11 +371,14 @@ function time()
     });
 }
 
-document.querySelector('.js-log-out').addEventListener('click',()=>
+document.querySelectorAll('.js-log-out').forEach((logOutButton)=>
 {
-    localStorage.removeItem('userInUseTst');
-    window.open('login-signUp-Tst.html');
-    window.close('mainPage-Tst.html');
+    logOutButton.addEventListener('click',()=>
+    {
+        localStorage.removeItem('userInUseTst');
+        window.open('login-signUp-Tst.html');
+        window.close('mainPage-Tst.html');
+    });
 });
 
 function enhancedEventListener()
@@ -579,65 +583,68 @@ function bellRing()
     }, 2000);
 }
 
-document.querySelector('.js-automate-list').addEventListener('click',()=>
+document.querySelectorAll('.js-automate-list').forEach((automateButton)=>
 {
-    let html = '';
-    automateListsTst.forEach((listItem, index)=>
+    automateButton.addEventListener('click', ()=>
     {
-        html = html + `
-        <div class="list-date js-list-date" data-automate-id="${index}">${listItem.date}</div>`;
-    });
-
-    if(html === '')
-    {
-        document.querySelector('.js-list-history').innerHTML = 
-        `
-            <div class="background2"></div>
-            <div class="select-list-UI">
-                <div class="list-history-heading">
-                    Select previosuly created lists
-                    <div class="x-div js-x-div"><img class="x2-img" src="images/x.svg"></div>
-                </div>
-                <div class="list-history-content">
-                    <div class="no-list-history">you currently have no list history.</div>
-                </div>
-            </div> 
-        `;
-
-    }
-    else
-    {
-        document.querySelector('.js-list-history').innerHTML = 
-        `
-            <div class="background2"></div>
-            <div class="select-list-UI">
-                <div class="list-history-heading">
-                    Select previosuly created lists
-                    <div class="x-div js-x-div"><img class="x2-img" src="images/x.svg"></div>
-                </div>
-                <div class="list-history-content">
-                    ${html}
-                </div>
-            </div> 
-        `;
-    }
-
-    document.querySelector('.js-x-div').addEventListener('click',()=>
-    {
-        document.querySelector('.js-list-history').innerHTML = ``;
-    });
-
-    document.querySelectorAll('.js-list-date').forEach((listDateDiv)=>
-    {
-        listDateDiv.addEventListener('click', ()=>
+        let html = '';
+        automateListsTst.forEach((listItem, index)=>
         {
-            let listIndex = listDateDiv.dataset.automateId;
-            let day = dayjs().format('YYYY-MM-DD');
-            automateListsTst[listIndex].date = day;
-            listTst.push(automateListsTst[listIndex]);
-            renderList();
+            html = html + `
+            <div class="list-date js-list-date" data-automate-id="${index}">${listItem.date}</div>`;
+        });
+
+        if(html === '')
+        {
+            document.querySelector('.js-list-history').innerHTML = 
+            `
+                <div class="background2"></div>
+                <div class="select-list-UI">
+                    <div class="list-history-heading">
+                        Select previosuly created lists
+                        <div class="x-div js-x-div"><img class="x2-img" src="images/x.svg"></div>
+                    </div>
+                    <div class="list-history-content">
+                        <div class="no-list-history">you currently have no list history.</div>
+                    </div>
+                </div> 
+            `;
+
+        }
+        else
+        {
+            document.querySelector('.js-list-history').innerHTML = 
+            `
+                <div class="background2"></div>
+                <div class="select-list-UI">
+                    <div class="list-history-heading">
+                        Select previosuly created lists
+                        <div class="x-div js-x-div"><img class="x2-img" src="images/x.svg"></div>
+                    </div>
+                    <div class="list-history-content">
+                        ${html}
+                    </div>
+                </div> 
+            `;
+        }
+
+        document.querySelector('.js-x-div').addEventListener('click',()=>
+        {
+            document.querySelector('.js-list-history').innerHTML = ``;
+        });
+
+        document.querySelectorAll('.js-list-date').forEach((listDateDiv)=>
+        {
+            listDateDiv.addEventListener('click', ()=>
+            {
+                let listIndex = listDateDiv.dataset.automateId;
+                let day = dayjs().format('YYYY-MM-DD');
+                automateListsTst[listIndex].date = day;
+                listTst.push(automateListsTst[listIndex]);
+                renderList();
+            })
         })
-    })
+    });
 });
 
 function findMatchingItem(list)
