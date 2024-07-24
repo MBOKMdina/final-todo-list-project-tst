@@ -446,6 +446,17 @@
 
 @media (min-height: 889.8px)/*Will apply all styles until min height is met*/
 {
+    .no-list-history
+    {
+        height: 100px;
+        font-family: 'REM';
+        color: white;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 40px;
+    }
+
     .select-list-UI
     {
         background-color: darkgray;
