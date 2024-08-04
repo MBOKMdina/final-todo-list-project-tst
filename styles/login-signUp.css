@@ -494,9 +494,9 @@ body
 
     .close-container
     {
-        box-shadow: 0px 12px 20px rgb(244, 244, 244) inset;
+        box-shadow: 0px 24px 40px rgb(244, 244, 244) inset;
         position: absolute;
-        height: 30px;
+        height: 60px;
         left: 0px;
         right: 0px;
         top: 0px;
@@ -507,13 +507,13 @@ body
 
     .close-btn
     {
-        height: 30px;
-        width: 50px;
+        height: 60px;
+        width: 100px;
         background-color: red;
         position: absolute;
         right: 0px;
         border-left: solid;
-        border-width: 1px;
+        border-width: 2px;
         cursor: pointer;
         display: flex;
         align-items: center;
@@ -527,19 +527,19 @@ body
 
     .close
     {
-        height: 20px;
-        width: 20px;
+        height: 40px;
+        width: 40px;
     }
 
     .log-in-container,
     .sign-up-container,
     .error-container
     {
-        box-shadow: 0px 100px 20px rgb(239, 239, 239) inset;
+        box-shadow: 0px 200px 40px rgb(239, 239, 239) inset;
         position: fixed;
         background-color: rgb(216, 216, 216);
         margin-top: 90px;
-        width: 450px;
+        width: 900px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -550,8 +550,14 @@ body
 
     .sign-up-container
     {
-        width: 600px;
-        height: 208.1px;
+        width: 900px;
+        height: 544.6px;
+        box-shadow: 0px 326.8px 65.36px rgb(239, 239, 239) inset;
+    }
+
+    .log-in-container
+    {
+        height: 416.2px;
     }
 
     .inputLI-user-container,
@@ -559,47 +565,48 @@ body
     {
         display: flex;
         flex-direction: column;
-        width: 300px;
+        width: 600px;
+        height: 193.2px;
         align-items: center;
-        margin-top: 50px;
+        margin-top: 100px;
         border: solid;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
         border-style: groove;
-        padding-top: 10px;
+        padding-top: 20px;
     }
 
     .inputSU-user-container
     {
         display: flex;
-        flex-direction: row;
-        width: 500px;
+        flex-direction: column;
         justify-content: space-around;
+        height: 1200px;
     }
 
     .inputLI-user-lbl,
     .inputSU-username-lbl,
     .reEnter-lbl
     {
-        font-size: 18px;
-        margin-bottom: 5px;
+        font-size: 40px;
+        margin-bottom: 10px;
     }
 
     .inputLI-user,
     .inputSU-user,
     .reEnter-username
     {
-        font-size: 18px;
-        margin-bottom: 20px;
+        font-size: 40px;
+        margin-bottom: 40px;
     }
 
     .log-in-btn,
     .sign-up-btn
     {
-        font-size: 18px;
-        margin-bottom: 20px;
-        width: 304.8px;
-        height: 30px;
-        box-shadow: 0px 12px 15px rgb(0, 180, 0) inset;
+        font-size: 40px;
+        margin-bottom: 40px;
+        width: 609.6px;
+        height: 60px;
+        box-shadow: 0px 24px 30px rgb(0, 180, 0) inset;
         background-color: green;
         color: white;
         cursor: pointer;
@@ -653,12 +660,12 @@ body
 
     .tip-message
     {
-        padding: 10px;
-        font-size: 18px;
-        margin-top: 20px;
+        padding: 20px;
+        font-size: 40px;
+        margin-top: 40px;
         background-color: gray;
         color: white;
-        border-radius: 20px;
+        border-radius: 40px;
         /*border: solid;
         border-color: rgb(167, 167, 167);
         border-width: 1px;*/
