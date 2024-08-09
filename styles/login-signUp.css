@@ -230,6 +230,7 @@ body
     padding-top: 40px;
     padding-left: 20px;
     padding-bottom: 20px;
+    padding-right: 20px;
     animation: none;
 }
 
@@ -622,15 +623,18 @@ body
 
     .error-container
     {
-        padding-top: 40px;
-        padding-left: 20px;
-        padding-bottom: 20px;
+        padding-top: 90px;
+        padding-left: 40px;
+        padding-bottom: 40px;
+        padding-right: 40px;
         animation: none;
     }
 
     .message
     {
         color: black;
+        font-size: 40px;
+        width: 838.275px;
     }
 
     .appropriate-UI
@@ -641,8 +645,8 @@ body
 
     .sad
     {
-        height: 16px;
-        width: 16px;
+        height: 32px;
+        width: 32px;
     }
 
     .sign-up-error
